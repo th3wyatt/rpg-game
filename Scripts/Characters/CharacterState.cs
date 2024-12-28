@@ -25,9 +25,13 @@ public abstract partial class CharacterState : Node // this class isn't meant to
         {
             SetPhysicsProcess(false); // turn off physics process logic
             SetProcessInput(false); // turn off checking for input
+            ExitState();
+
         }
     }
 
     protected virtual void EnterState() {}
+
+    protected virtual void ExitState() {}
 
 }
