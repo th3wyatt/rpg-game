@@ -19,4 +19,9 @@ public abstract partial class EnemyState: CharacterState
 
     }
 
+    protected void HandleChaseAreaBodyEntered(Node3D body)
+    {
+        CharacterNode.StateMachineNode.SwitchState<EnemyChaseState>();
+    }
+
 }
