@@ -282,8 +282,13 @@ maxIdleTime = 3.5
 [node name="Timer" type="Timer" parent="StateMachine/PatrolState"]
 one_shot = true
 
-[node name="ChaseState" type="Node" parent="StateMachine"]
+[node name="ChaseState" type="Node" parent="StateMachine" node_paths=PackedStringArray("EnemyChaseTimer")]
 script = ExtResource("105_fjjbp")
+EnemyChaseTimer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="StateMachine/ChaseState"]
+wait_time = 0.5
+autostart = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true

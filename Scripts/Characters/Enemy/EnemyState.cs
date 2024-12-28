@@ -9,6 +9,7 @@ public abstract partial class EnemyState: CharacterState
         CharacterNode.AgentNode.GetNextPathPosition();
         CharacterNode.Velocity = CharacterNode.GlobalPosition.DirectionTo(destination);
         CharacterNode.MoveAndSlide();
+        CharacterNode.Flip();
     }
 
     protected Vector3 GetPointGlobalPosition(int pathPointIndex)
