@@ -121,6 +121,7 @@ height = 1.60314
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("AnimationPlayerNode", "Sprite3DNode", "StateMachineNode")]
 collision_layer = 2
+collision_mask = 5
 floor_max_angle = 1.55334
 floor_snap_length = 0.4
 script = ExtResource("1_uq2sd")

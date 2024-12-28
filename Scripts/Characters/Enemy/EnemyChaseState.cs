@@ -17,22 +17,36 @@ public partial class EnemyChaseState : EnemyState
         CharacterNode.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE);
         GD.Print("Chase state");
 
-        EnemyChaseTimer.Timeout += HandleChaseTimerTimeout;
-
         target = CharacterNode.ChaseAreaNode
         .GetOverlappingBodies()
         .First() as CharacterBody3D;
+
+        EnemyChaseTimer.Timeout += HandleChaseTimerTimeout;
+        CharacterNode.AttackAreaNode.BodyEntered += HandleAttackAreaBodyEntered;
+        CharacterNode.ChaseAreaNode.BodyExited += HandleChaseAreaBodyExited;
     }
 
     protected override void ExitState()
     {
-        EnemyChaseTimer.Timeout -= HandleChaseTimerTimeout;        
+        EnemyChaseTimer.Timeout -= HandleChaseTimerTimeout;
+        CharacterNode.AttackAreaNode.BodyEntered -= HandleAttackAreaBodyEntered;
+        CharacterNode.ChaseAreaNode.BodyExited -= HandleChaseAreaBodyExited;        
     }
 
     private void HandleChaseTimerTimeout()
     {
         destination = target.GlobalPosition;
         CharacterNode.AgentNode.TargetPosition = destination;
+    }
+
+    private void HandleAttackAreaBodyEntered(Node3D body)
+    {
+        CharacterNode.StateMachineNode.SwitchState<EnemyAttackState>();
+    }
+
+    private void HandleChaseAreaBodyExited(Node3D body)
+    {
+        CharacterNode.StateMachineNode.SwitchState<EnemyReturnState>();
     }
 
 }
