@@ -159,7 +159,6 @@ curve = SubResource("Curve3D_4qolw")
 [node name="Enemy" parent="Enemies/Path3D" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89818, 0.569252, 0.785168)
 collision_layer = 0
-collision_mask = 3
 PathNode = NodePath("..")
 
 [node name="Path3D4" type="Path3D" parent="Enemies"]
