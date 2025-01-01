@@ -32,7 +32,24 @@ public partial class PlayerAttackState : PlayerState
     private void HandleAnimationFinished(StringName animName)
     {
         comboCounter = Mathf.Wrap(comboCounter + 1, 1, comboCounterMax + 1);
+        
+        CharacterNode.ToggleHitbox(true);
         CharacterNode.StateMachineNode.SwitchState<PlayerIdleState>();
+
     }
 
+    private void PerformHit()
+    {
+        Vector3 newPosition = CharacterNode.Sprite3DNode.FlipH ?
+            Vector3.Left:
+            Vector3.Right;
+
+        float distanceMultiplier = 0.75f;
+        newPosition *= distanceMultiplier;
+        
+        CharacterNode.HitboxNode.Position = newPosition;
+        GD.Print("Perform Hit!");
+
+        CharacterNode.ToggleHitbox(false);
+    }
 }

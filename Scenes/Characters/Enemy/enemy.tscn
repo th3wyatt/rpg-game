@@ -111,12 +111,12 @@
 [sub_resource type="Resource" id="Resource_vd8ht"]
 script = ExtResource("2_cs6fy")
 StatType = 0
-StatValue = 20
+StatValue = 20.0
 
 [sub_resource type="Resource" id="Resource_2bnxl"]
 script = ExtResource("2_cs6fy")
 StatType = 1
-StatValue = 4
+StatValue = 4.0
 
 [sub_resource type="Animation" id="Animation_ttnur"]
 resource_name = "Attack"
@@ -257,7 +257,7 @@ radius = 6.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_gilqm"]
 radius = 1.4
 
-[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("AnimationPlayerNode", "Sprite3DNode", "StateMachineNode", "AgentNode", "ChaseAreaNode", "AttackAreaNode", "HurtboxNode")]
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("AnimationPlayerNode", "Sprite3DNode", "StateMachineNode", "HurtboxNode", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_t55de")
@@ -265,10 +265,10 @@ stats = Array[Object]([SubResource("Resource_vd8ht"), SubResource("Resource_2bnx
 AnimationPlayerNode = NodePath("AnimationPlayer")
 Sprite3DNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
+HurtboxNode = NodePath("Hurtbox")
 AgentNode = NodePath("NavigationAgent3D")
 ChaseAreaNode = NodePath("ChaseArea")
 AttackAreaNode = NodePath("AttackArea")
-HurtboxNode = NodePath("Hurtbox")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0025
