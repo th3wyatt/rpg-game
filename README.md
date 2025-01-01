@@ -1,0 +1,3 @@
+- Install .Net 9.0
+- Use Godot 4.3 Mono
+- That's it
