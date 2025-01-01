@@ -1,4 +1,4 @@
-using System;
+using System.Linq;
 using Godot;
 
 public abstract partial class Character : CharacterBody3D
@@ -26,7 +26,18 @@ public abstract partial class Character : CharacterBody3D
 
     private void HandleHurtboxAreaEntered(Area3D area)
     {
-        GD.Print("Shape Detected: " + area.GetParent().Name);
+        StatResource health = GetStatResource(Stat.Health);
+        GD.Print(health.StatValue);
+    }
+
+    public StatResource GetStatResource(Stat stat)
+    {
+        //LINQ query to get the matching stat in our stats array
+        //each item in the collection will be referred to as element
+        //lamda matches the stat type in element with the stat to match from the param
+        //we only want 1 result, so we get the first or default item in the collecion
+        return stats.Where((element) => stat == element.StatType)
+            .FirstOrDefault();
     }
 
     public void Flip()
