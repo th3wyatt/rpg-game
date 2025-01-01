@@ -1,8 +1,9 @@
-[gd_scene load_steps=76 format=3 uid="uid://c234cxddr26wc"]
+[gd_scene load_steps=79 format=3 uid="uid://c234cxddr26wc"]
 
 [ext_resource type="Texture2D" uid="uid://bojfne6f1m00d" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_000.png" id="1_b5x1c"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/Player.cs" id="1_uq2sd"]
 [ext_resource type="Texture2D" uid="uid://cj53guunnu1oi" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_001.png" id="2_4slbb"]
+[ext_resource type="Script" path="res://Scripts/Resources/StatResource.cs" id="2_8bvxl"]
 [ext_resource type="Texture2D" uid="uid://dy3kx1gi5i2rc" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_002.png" id="3_d361v"]
 [ext_resource type="Texture2D" uid="uid://bwef4qoo0p3f7" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_003.png" id="4_wj6ia"]
 [ext_resource type="Texture2D" uid="uid://cum4wolfxa1ln" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_004.png" id="5_5gvgy"]
@@ -66,6 +67,16 @@
 [ext_resource type="Texture2D" uid="uid://by12chu1gqv37" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_010.png" id="60_8333o"]
 [ext_resource type="Texture2D" uid="uid://ckmcxodldwty6" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_011.png" id="61_hf0cn"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerAttackState.cs" id="66_sh4fo"]
+
+[sub_resource type="Resource" id="Resource_f2nnm"]
+script = ExtResource("2_8bvxl")
+StatType = 0
+StatValue = 100
+
+[sub_resource type="Resource" id="Resource_ca3ok"]
+script = ExtResource("2_8bvxl")
+StatType = 1
+StatValue = 3
 
 [sub_resource type="Animation" id="Animation_co8h0"]
 resource_name = "Attack1"
@@ -187,6 +198,7 @@ collision_mask = 5
 floor_max_angle = 1.55334
 floor_snap_length = 0.4
 script = ExtResource("1_uq2sd")
+stats = Array[Object]([SubResource("Resource_f2nnm"), SubResource("Resource_ca3ok")])
 AnimationPlayerNode = NodePath("AnimationPlayer")
 Sprite3DNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=117 format=3 uid="uid://ce4yhci58tqya"]
+[gd_scene load_steps=120 format=3 uid="uid://ce4yhci58tqya"]
 
 [ext_resource type="Texture2D" uid="uid://bbau8tvgwnjie" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="1_2cv2a"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy.cs" id="1_t55de"]
+[ext_resource type="Script" path="res://Scripts/Resources/StatResource.cs" id="2_cs6fy"]
 [ext_resource type="Texture2D" uid="uid://bjc6bn878ymm8" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_001.png" id="2_csh5t"]
 [ext_resource type="Texture2D" uid="uid://ccgeo62gf6fqv" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_002.png" id="3_w8wuf"]
 [ext_resource type="Texture2D" uid="uid://j4ac4psvxymg" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_003.png" id="4_oa8lv"]
@@ -106,6 +107,16 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyPatrolState.cs" id="104_43k2c"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyChaseState.cs" id="105_fjjbp"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyAttackState.cs" id="106_6ftkg"]
+
+[sub_resource type="Resource" id="Resource_vd8ht"]
+script = ExtResource("2_cs6fy")
+StatType = 0
+StatValue = 20
+
+[sub_resource type="Resource" id="Resource_2bnxl"]
+script = ExtResource("2_cs6fy")
+StatType = 1
+StatValue = 4
 
 [sub_resource type="Animation" id="Animation_ttnur"]
 resource_name = "Attack"
@@ -250,6 +261,7 @@ radius = 1.4
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_t55de")
+stats = Array[Object]([SubResource("Resource_vd8ht"), SubResource("Resource_2bnxl")])
 AnimationPlayerNode = NodePath("AnimationPlayer")
 Sprite3DNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
