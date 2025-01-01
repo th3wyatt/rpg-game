@@ -1,8 +1,17 @@
+using System;
 using Godot;
 
 public abstract partial class EnemyState: CharacterState
 {
     protected Vector3 destination;
+
+    public override void _Ready()
+    {
+        base._Ready();
+
+        CharacterNode.GetStatResource(Stat.Health).OnZero += HandleZerohealth;
+    }
+
 
     protected void Move()
     {
@@ -23,6 +32,10 @@ public abstract partial class EnemyState: CharacterState
     protected void HandleChaseAreaBodyEntered(Node3D body)
     {
         CharacterNode.StateMachineNode.SwitchState<EnemyChaseState>();
+    }
+    private void HandleZerohealth()
+    {
+        CharacterNode.StateMachineNode.SwitchState<EnemyDeathState>();
     }
 
 }

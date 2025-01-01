@@ -34,4 +34,6 @@ public abstract partial class CharacterState : Node // this class isn't meant to
 
     protected virtual void ExitState() {}
 
+
 }
+

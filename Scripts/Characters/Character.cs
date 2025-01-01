@@ -59,4 +59,6 @@ public abstract partial class Character : CharacterBody3D
     {
         HitboxShapeNode.Disabled = flag;
     }
+    
+
 }

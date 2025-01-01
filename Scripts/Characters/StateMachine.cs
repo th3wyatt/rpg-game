@@ -20,6 +20,8 @@ public partial class StateMachine : Node
         
         if (newState == null) {return;}
 
+        if (currentState is T) {return;}
+
         currentState.Notification(GameConstants.EXIT_STATE_CHANNEL);
         currentState = newState;
         currentState.Notification(GameConstants.ENTER_STATE_CHANNEL);
