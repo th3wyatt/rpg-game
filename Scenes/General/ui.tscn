@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpqbyyycrfjh5"]
+
+[ext_resource type="Texture2D" uid="uid://cylcblajbgyem" path="res://Assets/Sprites/UI/UI Element 1.png" id="1_gnixx"]
+[ext_resource type="Script" path="res://Scripts/General/UI/UIController.cs" id="1_hmbi4"]
+[ext_resource type="FontFile" uid="uid://cedd4srjv6ccc" path="res://Assets/RifficFree-Bold.ttf" id="2_ntlcj"]
+[ext_resource type="Script" path="res://Scripts/General/UI/UIContainer.cs" id="2_ydhgw"]
+[ext_resource type="Texture2D" uid="uid://dukxke1wi4qk1" path="res://Assets/Sprites/UI/UI Element 2.png" id="3_j02xe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s2haa"]
+texture = ExtResource("3_j02xe")
+expand_margin_left = 48.0
+expand_margin_top = 8.0
+expand_margin_right = 48.0
+expand_margin_bottom = 16.0
+
+[node name="UI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hmbi4")
+
+[node name="Start" type="VBoxContainer" parent="." node_paths=PackedStringArray("ButtonNode")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.5
+offset_top = -109.5
+offset_right = 260.5
+offset_bottom = 109.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ydhgw")
+ButtonNode = NodePath("Button")
+
+[node name="TextureRect" type="TextureRect" parent="Start"]
+layout_mode = 2
+texture = ExtResource("1_gnixx")
+
+[node name="Button" type="Button" parent="Start"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ntlcj")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxTexture_s2haa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s2haa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_s2haa")
+text = "Start"
