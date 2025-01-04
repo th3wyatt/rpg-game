@@ -99,7 +99,7 @@ point_count = 4
 script = ExtResource("1_jpihj")
 
 [node name="Player" parent="." instance=ExtResource("2_g2yvp")]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 35.9046, 1.76555, 43.4886)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 23.3715, 1.76555, 33.9469)
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -164,41 +164,80 @@ PathNode = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4865, 1.31993, 42.7817)
 curve = SubResource("Curve3D_ry7wq")
 
+[node name="Enemy" parent="Enemies/Path3D4" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533852, 0)
+PathNode = NodePath("..")
+
 [node name="Path3D5" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.1346, 1.31993, 44.7435)
 curve = SubResource("Curve3D_ok3o8")
+
+[node name="Enemy" parent="Enemies/Path3D5" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41426, 0.491322, 0)
+PathNode = NodePath("..")
 
 [node name="Path3D2" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9917, 5.45589, 29.3759)
 curve = SubResource("Curve3D_vqwnc")
 
+[node name="Enemy" parent="Enemies/Path3D2" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372819, 0)
+PathNode = NodePath("..")
+
 [node name="Path3D3" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1292, 6.49305, 22.6293)
 curve = SubResource("Curve3D_2bg6b")
+
+[node name="Enemy" parent="Enemies/Path3D3" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+PathNode = NodePath("..")
 
 [node name="Path3D6" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7125, 1.69927, 29.6173)
 curve = SubResource("Curve3D_rm206")
 
+[node name="Enemy" parent="Enemies/Path3D6" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.208633, 0)
+PathNode = NodePath("..")
+
 [node name="Path3D7" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5146, 1.20861, 11.0912)
 curve = SubResource("Curve3D_c74q8")
+
+[node name="Enemy" parent="Enemies/Path3D7" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46687, 0.61318, 2.63334)
+PathNode = NodePath("..")
 
 [node name="Path3D8" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.50057, 1.20861, 11.0912)
 curve = SubResource("Curve3D_dg8be")
 
+[node name="Enemy" parent="Enemies/Path3D8" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.706795, 0)
+PathNode = NodePath("..")
+
 [node name="Path3D9" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200439, 1.20861, 11.0912)
 curve = SubResource("Curve3D_qov7o")
+
+[node name="Enemy" parent="Enemies/Path3D9" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661129, 0)
+PathNode = NodePath("..")
 
 [node name="Path3D10" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11064, 1.20861, 11.0912)
 curve = SubResource("Curve3D_td4lu")
 
+[node name="Enemy" parent="Enemies/Path3D10" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671174, 0)
+PathNode = NodePath("..")
+
 [node name="Path3D11" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6074, 1.20861, 11.0912)
 curve = SubResource("Curve3D_bd7wr")
+
+[node name="Enemy" parent="Enemies/Path3D11" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661902, 0)
+PathNode = NodePath("..")
 
 [node name="UI" parent="." instance=ExtResource("5_d8hlk")]
 

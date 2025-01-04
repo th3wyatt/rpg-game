@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpqbyyycrfjh5"]
+[gd_scene load_steps=17 format=3 uid="uid://cpqbyyycrfjh5"]
 
 [ext_resource type="Texture2D" uid="uid://cylcblajbgyem" path="res://Assets/Sprites/UI/UI Element 1.png" id="1_gnixx"]
 [ext_resource type="Script" path="res://Scripts/General/UI/UIController.cs" id="1_hmbi4"]
@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dx4vdsnyqv483" path="res://Assets/Sprites/UI/UI ElementUI 12.png" id="6_ay0kg"]
 [ext_resource type="Texture2D" uid="uid://yrgsd8mvl5t1" path="res://Assets/Sprites/UI/UI ElementUI 6.png" id="7_tpfv5"]
 [ext_resource type="Texture2D" uid="uid://csbov6ihi4adp" path="res://Assets/Sprites/UI/UI ElementUI 7.png" id="8_5d31y"]
+[ext_resource type="Script" path="res://Scripts/General/UI/StatLabel.cs" id="9_5pbgl"]
 [ext_resource type="Texture2D" uid="uid://b77peyewkfbrg" path="res://Assets/Sprites/UI/UI ElementUI 8.png" id="9_jq410"]
 [ext_resource type="Texture2D" uid="uid://d22ug6khaxdm2" path="res://Assets/Sprites/UI/UI ElementUI 9.png" id="10_4alj8"]
+[ext_resource type="Resource" uid="uid://dx7h5re5ouom2" path="res://Resources/player_health_stat.tres" id="10_sdc1k"]
+[ext_resource type="Resource" uid="uid://bfdx6xxqwjnln" path="res://Resources/player_strength_stat.tres" id="12_tukfp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s2haa"]
 texture = ExtResource("3_j02xe")
@@ -66,12 +69,15 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_s2haa")
 text = "Start"
 
 [node name="Stats" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 32.0
 offset_top = 32.0
 offset_right = 232.0
 offset_bottom = 272.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_biyul")
+script = ExtResource("2_ydhgw")
+container = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="Stats"]
 layout_mode = 2
@@ -108,6 +114,8 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_ntlcj")
 theme_override_font_sizes/font_size = 28
 text = "---"
+script = ExtResource("9_5pbgl")
+statResource = ExtResource("10_sdc1k")
 
 [node name="Strength" type="Panel" parent="Stats/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 44)
@@ -116,6 +124,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_2slcb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Stats/MarginContainer/VBoxContainer/Strength"]
 custom_minimum_size = Vector2(2.85, 0)
+layout_mode = 0
 offset_left = 20.0
 offset_top = 4.0
 offset_right = 76.0
@@ -133,6 +142,8 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_ntlcj")
 theme_override_font_sizes/font_size = 28
 text = "---"
+script = ExtResource("9_5pbgl")
+statResource = ExtResource("12_tukfp")
 
 [node name="EnemyCount" type="Panel" parent="Stats/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 44)
@@ -141,6 +152,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_2slcb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Stats/MarginContainer/VBoxContainer/EnemyCount"]
 custom_minimum_size = Vector2(2.85, 0)
+layout_mode = 0
 offset_left = 20.0
 offset_top = 4.0
 offset_right = 76.0
