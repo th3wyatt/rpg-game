@@ -8,7 +8,7 @@ public partial class TreasureChest : StaticBody3D
     [Export] private RewardResource reward;
 
     public override void _Ready()
-    {
+    {   
         areaNode.BodyEntered += (body) => iconNode.Visible = true;
         areaNode.BodyExited += (body) => iconNode.Visible = false;
     }
@@ -16,6 +16,7 @@ public partial class TreasureChest : StaticBody3D
     public override void _Input(InputEvent @event)
     {
         if (
+            !areaNode.Monitoring ||
             !areaNode.HasOverlappingBodies() ||
             !Input.IsActionJustPressed(GameConstants.INPUT_INTERACT)
             )
@@ -23,7 +24,9 @@ public partial class TreasureChest : StaticBody3D
             return;
         }
 
-        GD.Print("Chest Opened");
+        areaNode.Monitoring = false;
+
+        GameEvents.RaiseReward(reward);
         
     }
 }

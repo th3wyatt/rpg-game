@@ -82,6 +82,7 @@ theme_override_fonts/font = ExtResource("2_ntlcj")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxTexture_s2haa")
 theme_override_styles/hover = SubResource("StyleBoxTexture_s2haa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s2haa")
 theme_override_styles/normal = SubResource("StyleBoxTexture_s2haa")
 text = "Start"
 
@@ -321,7 +322,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_wrplf")
 theme_override_styles/normal = SubResource("StyleBoxTexture_wrplf")
 text = "Continue"
 
-[node name="Reward" type="PanelContainer" parent="." node_paths=PackedStringArray("ButtonNode")]
+[node name="Reward" type="PanelContainer" parent="." node_paths=PackedStringArray("ButtonNode", "TextureNode", "LabelNode")]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -339,6 +340,8 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_cexg5")
 script = ExtResource("2_ydhgw")
 container = 5
 ButtonNode = NodePath("MarginContainer/VBoxContainer/VBoxContainer/Button")
+TextureNode = NodePath("MarginContainer/VBoxContainer/VBoxContainer/TextureRect")
+LabelNode = NodePath("MarginContainer/VBoxContainer/VBoxContainer/RewardText")
 
 [node name="MarginContainer" type="MarginContainer" parent="Reward"]
 layout_mode = 2

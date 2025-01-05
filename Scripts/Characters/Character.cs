@@ -3,7 +3,7 @@ using Godot;
 
 public abstract partial class Character : CharacterBody3D
 {
-    [Export] private StatResource[] stats;
+    [Export] protected StatResource[] stats;
     
     [ExportGroup("Required Nodes")]
     [Export] public AnimationPlayer AnimationPlayerNode {get; private set;}
