@@ -4,6 +4,7 @@ using System;
 public partial class PlayerDashState : PlayerState
 {
     [Export] private Timer dashTimerNode;
+    [Export] private PackedScene bombScene;
 
     [Export(PropertyHint.Range, "0,20,.1")] private float speed = 10;
 
@@ -33,6 +34,10 @@ public partial class PlayerDashState : PlayerState
             }
             CharacterNode.Velocity *= speed;
             dashTimerNode.Start();
+
+            Node3D bomb = bombScene.Instantiate<Node3D>();
+            GetTree().CurrentScene.AddChild(bomb);
+            bomb.GlobalPosition = CharacterNode.GlobalPosition;
     }
 
     private void HandleDashTimeout()
