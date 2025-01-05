@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://ce4yhci58tqya"]
+[gd_scene load_steps=126 format=3 uid="uid://ce4yhci58tqya"]
 
 [ext_resource type="Texture2D" uid="uid://bbau8tvgwnjie" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="1_2cv2a"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy.cs" id="1_t55de"]
@@ -110,6 +110,7 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyAttackState.cs" id="106_6ftkg"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyDeathState.cs" id="108_kfonu"]
 [ext_resource type="Script" path="res://Scripts/Characters/AttackHitbox.cs" id="109_pbdaa"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyStunState.cs" id="110_xs5jd"]
 
 [sub_resource type="Resource" id="Resource_vd8ht"]
 script = ExtResource("2_cs6fy")
@@ -187,22 +188,6 @@ tracks/1/keys = {
 "values": [0.0025, 0.0025, 0.0075]
 }
 
-[sub_resource type="Animation" id="Animation_imajs"]
-resource_name = "Hit"
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("88_iavqa"), ExtResource("89_qm66j"), ExtResource("90_t7so5"), ExtResource("91_lpuee"), ExtResource("92_o42co"), ExtResource("93_fmpdv"), ExtResource("94_coq46"), ExtResource("95_ra8ux"), ExtResource("96_clqd3"), ExtResource("97_1etbm"), ExtResource("98_x7hsg"), ExtResource("99_2f0js")]
-}
-
 [sub_resource type="Animation" id="Animation_njwry"]
 resource_name = "Idle"
 loop_mode = 1
@@ -264,14 +249,30 @@ tracks/1/keys = {
 "values": [0.0025]
 }
 
+[sub_resource type="Animation" id="Animation_imajs"]
+resource_name = "Stun"
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("88_iavqa"), ExtResource("89_qm66j"), ExtResource("90_t7so5"), ExtResource("91_lpuee"), ExtResource("92_o42co"), ExtResource("93_fmpdv"), ExtResource("94_coq46"), ExtResource("95_ra8ux"), ExtResource("96_clqd3"), ExtResource("97_1etbm"), ExtResource("98_x7hsg"), ExtResource("99_2f0js")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_008ds"]
 _data = {
 "Attack": SubResource("Animation_ttnur"),
 "Death": SubResource("Animation_1q6cl"),
-"Hit": SubResource("Animation_imajs"),
 "Idle": SubResource("Animation_njwry"),
 "Move": SubResource("Animation_c1ph2"),
-"RESET": SubResource("Animation_284sx")
+"RESET": SubResource("Animation_284sx"),
+"Stun": SubResource("Animation_imajs")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdig4"]
@@ -318,7 +319,7 @@ shape = SubResource("CapsuleShape3D_gdig4")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("100_kloyk")]
 currentState = NodePath("IdleState")
-states = [NodePath("IdleState"), NodePath("ReturnState"), NodePath("PatrolState"), NodePath("ChaseState"), NodePath("AttackState"), NodePath("DeathState")]
+states = [NodePath("IdleState"), NodePath("ReturnState"), NodePath("PatrolState"), NodePath("ChaseState"), NodePath("AttackState"), NodePath("DeathState"), NodePath("StunState")]
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("101_4npn7")
@@ -347,6 +348,9 @@ script = ExtResource("106_6ftkg")
 
 [node name="DeathState" type="Node" parent="StateMachine"]
 script = ExtResource("108_kfonu")
+
+[node name="StunState" type="Node" parent="StateMachine"]
+script = ExtResource("110_xs5jd")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
