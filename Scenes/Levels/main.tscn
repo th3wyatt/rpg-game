@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bsvi4knekliry"]
+[gd_scene load_steps=38 format=3 uid="uid://bsvi4knekliry"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/Main.cs" id="1_jpihj"]
 [ext_resource type="PackedScene" uid="uid://c234cxddr26wc" path="res://Scenes/Characters/Player/player.tscn" id="2_g2yvp"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cpqbyyycrfjh5" path="res://Scenes/General/ui.tscn" id="5_d8hlk"]
 [ext_resource type="Script" path="res://Scripts/General/Camera.cs" id="6_6twp5"]
 [ext_resource type="Script" path="res://Scripts/Resources/StatResource.cs" id="7_lkrf0"]
+[ext_resource type="PackedScene" uid="uid://dpn4o7onfu8dc" path="res://Scenes/Reward/treasure_chest.tscn" id="9_4n4fr"]
+[ext_resource type="Texture2D" uid="uid://b6i3ovbxfnhpg" path="res://Assets/Sprites/UI/UI ElementUI 13.png" id="10_r2mye"]
+[ext_resource type="Script" path="res://Scripts/Reward/RewardResource.cs" id="11_wa5on"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bx7qy"]
 size = Vector3(0.128418, 4.89528, 6.50943)
@@ -152,6 +155,13 @@ script = ExtResource("7_lkrf0")
 StatType = 0
 StatValue = 20.0
 
+[sub_resource type="Resource" id="Resource_4eygs"]
+script = ExtResource("11_wa5on")
+SpriteTexture = ExtResource("10_r2mye")
+Description = "+4 Damage"
+TargetStat = 1
+Amount = 4.0
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jpihj")
 
@@ -220,6 +230,95 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89818, 0.569252, 0.785168)
 collision_layer = 0
 PathNode = NodePath("..")
 
+[node name="Path3D4" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4865, 1.31993, 42.7817)
+curve = SubResource("Curve3D_ry7wq")
+
+[node name="Enemy" parent="Enemies/Path3D4" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533852, 0)
+stats = Array[Object]([SubResource("Resource_skkd5"), SubResource("Resource_2bnxl")])
+PathNode = NodePath("..")
+
+[node name="Path3D5" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.1346, 1.31993, 44.7435)
+curve = SubResource("Curve3D_ok3o8")
+
+[node name="Enemy" parent="Enemies/Path3D5" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41426, 0.491322, 0)
+stats = Array[Object]([SubResource("Resource_6ahfy"), SubResource("Resource_2bnxl")])
+PathNode = NodePath("..")
+
+[node name="Path3D2" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9917, 5.45589, 29.3759)
+curve = SubResource("Curve3D_vqwnc")
+
+[node name="Enemy" parent="Enemies/Path3D2" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372819, 0)
+stats = Array[Object]([SubResource("Resource_vmxpr"), SubResource("Resource_2bnxl")])
+PathNode = NodePath("..")
+
+[node name="Path3D3" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1292, 6.49305, 22.6293)
+curve = SubResource("Curve3D_2bg6b")
+
+[node name="Enemy" parent="Enemies/Path3D3" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+stats = Array[Object]([SubResource("Resource_m7cyh"), SubResource("Resource_2bnxl")])
+PathNode = NodePath("..")
+
+[node name="Path3D6" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7125, 1.69927, 29.6173)
+curve = SubResource("Curve3D_rm206")
+
+[node name="Enemy" parent="Enemies/Path3D6" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.208633, 0)
+stats = Array[Object]([SubResource("Resource_5gn7n"), SubResource("Resource_2bnxl")])
+PathNode = NodePath("..")
+
+[node name="Path3D7" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5146, 1.20861, 11.0912)
+curve = SubResource("Curve3D_c74q8")
+
+[node name="Enemy" parent="Enemies/Path3D7" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46687, 0.61318, 2.63334)
+stats = Array[Object]([SubResource("Resource_5enri"), SubResource("Resource_2bnxl")])
+PathNode = NodePath("..")
+
+[node name="Path3D8" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.50057, 1.20861, 11.0912)
+curve = SubResource("Curve3D_dg8be")
+
+[node name="Enemy" parent="Enemies/Path3D8" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.706795, 0)
+stats = Array[Object]([SubResource("Resource_cxe80"), SubResource("Resource_2bnxl")])
+PathNode = NodePath("..")
+
+[node name="Path3D9" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200439, 1.20861, 11.0912)
+curve = SubResource("Curve3D_qov7o")
+
+[node name="Enemy" parent="Enemies/Path3D9" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661129, 0)
+stats = Array[Object]([SubResource("Resource_babau"), SubResource("Resource_2bnxl")])
+PathNode = NodePath("..")
+
+[node name="Path3D10" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11064, 1.20861, 11.0912)
+curve = SubResource("Curve3D_td4lu")
+
+[node name="Enemy" parent="Enemies/Path3D10" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671174, 0)
+stats = Array[Object]([SubResource("Resource_iwkag"), SubResource("Resource_2bnxl")])
+PathNode = NodePath("..")
+
+[node name="Path3D11" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6074, 1.20861, 11.0912)
+curve = SubResource("Curve3D_bd7wr")
+
+[node name="Enemy" parent="Enemies/Path3D11" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661902, 0)
+stats = Array[Object]([SubResource("Resource_qy64f"), SubResource("Resource_2bnxl")])
+PathNode = NodePath("..")
+
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 0.911022, 0.412357, 0, -0.412357, 0.911022, 35.9046, 5.25032, 40.2201)
 script = ExtResource("6_6twp5")
@@ -228,91 +327,6 @@ positionFromTarget = Vector3(0, 2, 6)
 
 [node name="DisabledEnemies" type="Node" parent="."]
 
-[node name="Path3D4" type="Path3D" parent="DisabledEnemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4865, 1.31993, 42.7817)
-curve = SubResource("Curve3D_ry7wq")
-
-[node name="Enemy" parent="DisabledEnemies/Path3D4" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533852, 0)
-stats = Array[Object]([SubResource("Resource_skkd5"), SubResource("Resource_2bnxl")])
-PathNode = NodePath("..")
-
-[node name="Path3D5" type="Path3D" parent="DisabledEnemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.1346, 1.31993, 44.7435)
-curve = SubResource("Curve3D_ok3o8")
-
-[node name="Enemy" parent="DisabledEnemies/Path3D5" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41426, 0.491322, 0)
-stats = Array[Object]([SubResource("Resource_6ahfy"), SubResource("Resource_2bnxl")])
-PathNode = NodePath("..")
-
-[node name="Path3D2" type="Path3D" parent="DisabledEnemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9917, 5.45589, 29.3759)
-curve = SubResource("Curve3D_vqwnc")
-
-[node name="Enemy" parent="DisabledEnemies/Path3D2" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372819, 0)
-stats = Array[Object]([SubResource("Resource_vmxpr"), SubResource("Resource_2bnxl")])
-PathNode = NodePath("..")
-
-[node name="Path3D3" type="Path3D" parent="DisabledEnemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1292, 6.49305, 22.6293)
-curve = SubResource("Curve3D_2bg6b")
-
-[node name="Enemy" parent="DisabledEnemies/Path3D3" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
-stats = Array[Object]([SubResource("Resource_m7cyh"), SubResource("Resource_2bnxl")])
-PathNode = NodePath("..")
-
-[node name="Path3D6" type="Path3D" parent="DisabledEnemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7125, 1.69927, 29.6173)
-curve = SubResource("Curve3D_rm206")
-
-[node name="Enemy" parent="DisabledEnemies/Path3D6" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.208633, 0)
-stats = Array[Object]([SubResource("Resource_5gn7n"), SubResource("Resource_2bnxl")])
-PathNode = NodePath("..")
-
-[node name="Path3D7" type="Path3D" parent="DisabledEnemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5146, 1.20861, 11.0912)
-curve = SubResource("Curve3D_c74q8")
-
-[node name="Enemy" parent="DisabledEnemies/Path3D7" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46687, 0.61318, 2.63334)
-stats = Array[Object]([SubResource("Resource_5enri"), SubResource("Resource_2bnxl")])
-PathNode = NodePath("..")
-
-[node name="Path3D8" type="Path3D" parent="DisabledEnemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.50057, 1.20861, 11.0912)
-curve = SubResource("Curve3D_dg8be")
-
-[node name="Enemy" parent="DisabledEnemies/Path3D8" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.706795, 0)
-stats = Array[Object]([SubResource("Resource_cxe80"), SubResource("Resource_2bnxl")])
-PathNode = NodePath("..")
-
-[node name="Path3D9" type="Path3D" parent="DisabledEnemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200439, 1.20861, 11.0912)
-curve = SubResource("Curve3D_qov7o")
-
-[node name="Enemy" parent="DisabledEnemies/Path3D9" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661129, 0)
-stats = Array[Object]([SubResource("Resource_babau"), SubResource("Resource_2bnxl")])
-PathNode = NodePath("..")
-
-[node name="Path3D10" type="Path3D" parent="DisabledEnemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11064, 1.20861, 11.0912)
-curve = SubResource("Curve3D_td4lu")
-
-[node name="Enemy" parent="DisabledEnemies/Path3D10" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671174, 0)
-stats = Array[Object]([SubResource("Resource_iwkag"), SubResource("Resource_2bnxl")])
-PathNode = NodePath("..")
-
-[node name="Path3D11" type="Path3D" parent="DisabledEnemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6074, 1.20861, 11.0912)
-curve = SubResource("Curve3D_bd7wr")
-
-[node name="Enemy" parent="DisabledEnemies/Path3D11" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_oywap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661902, 0)
-stats = Array[Object]([SubResource("Resource_qy64f"), SubResource("Resource_2bnxl")])
-PathNode = NodePath("..")
+[node name="TreasureChest" parent="." instance=ExtResource("9_4n4fr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7899, 1.58136, 45.3733)
+reward = SubResource("Resource_4eygs")
