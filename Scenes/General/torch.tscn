@@ -41,6 +41,7 @@ light_color = Color(0.85098, 0.486275, 0.262745, 1)
 light_energy = 5.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470123, 0.367027)
 amount = 60
 process_material = SubResource("ParticleProcessMaterial_gtscn")

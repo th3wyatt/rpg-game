@@ -1,9 +1,12 @@
+using System;
 using Godot;
 
 public abstract partial class CharacterState : Node // this class isn't meant to be implemented directly
 {
     
     protected Character CharacterNode; 
+    public Func<bool> CanTransition = () => true;
+
     public override void _Ready()
     {
         CharacterNode = GetOwner<Character>();

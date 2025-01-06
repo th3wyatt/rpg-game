@@ -41,6 +41,7 @@ light_energy = 2.5
 omni_range = 1.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.871395, -0.00423121)
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_vwgk3")
